@@ -117,9 +117,9 @@ namespace Flagger.Samples.SetAndReset {
 }
 ```
 
-### 3. Setting and Resetting values with *[Flag.SetAndUnset\\<T\\>](#flagsetandunsettmember-setvalue-unsetvalue)*
+### 3. Setting and Resetting values with *[Flag.SetAndUnset\<T\>](#flagsetandunsettmember-setvalue-unsetvalue)*
 
-Use [Flag.SetAndUnset\\<T\\>](#flagsetandunsettmember-setvalue-unsetvalue) when you need to set an specific initial value to a field or property momentarily, and another specific final value when done.
+Use [Flag.SetAndUnset\<T\>](#flagsetandunsettmember-setvalue-unsetvalue) when you need to set an specific initial value to a field or property momentarily, and another specific final value when done.
 
 If you need to set a ``bool`` variable, field or property to ``true`` and unset it to ``false`` (a very common scenario), you can use the simpler [boolean version of the Flag.SetAndUnset](#flagsetandunsetmember) method.
 
