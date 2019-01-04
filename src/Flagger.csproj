@@ -1,11 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
-    <Authors>Robson Rocha de Araújo</Authors>
+    <Authors>RobsonROX</Authors>
     <Product>Flagger</Product>
-    <Description>Small and simple library to keep track of temporary flags
-</Description>
+    <Description>Small and simple library to keep track of temporary flags</Description>
     <PackageIconUrl>https://github.com/Robson-Rocha/Flagger/raw/master/docs/flagger-nuget.png</PackageIconUrl>
     <RepositoryUrl></RepositoryUrl>
     <PackageProjectUrl>https://github.com/robson-rocha/flagger</PackageProjectUrl>
@@ -13,6 +12,7 @@
     <Copyright>Copyright ©2019 Robson Rocha de Araújo</Copyright>
     <PackageLicenseUrl>https://github.com/Robson-Rocha/Flagger/blob/master/LICENSE</PackageLicenseUrl>
     <PackageTags>flag</PackageTags>
+    <Company>Robson Rocha de Araújo</Company>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
