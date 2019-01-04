@@ -1,6 +1,7 @@
 # Flagger
 
 [![HitCount](http://hits.dwyl.io/robson-rocha/flagger.svg)](http://hits.dwyl.io/robson-rocha/flagger)
+![](https://travis-ci.org/Robson-Rocha/Flagger.svg?branch=master)
 
 **Flagger** is a small library which help you to set and unset (or toggle) a variable, field or property at the begin and end of an **using** scope. It is very useful for WPF properties, when you need to set a Dependency Property -- e.g. "IsWorking" -- while some background processing is being done to show and hide a panel using binding to a visibility property, or even to implement lightweight locks.
 
