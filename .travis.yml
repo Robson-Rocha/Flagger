@@ -1,2 +1,2 @@
 language: csharp
-solution: ./src/flagger.sln
+solution: ./src/Flagger.sln
