@@ -1,0 +1,64 @@
+{
+    // Use IntelliSense to find out which attributes exist for C# debugging
+    // Use hover for the description of the existing attributes
+    // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Flagger.Samples.SetAndReset",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-setandreset",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/src/samples/setandreset/bin/Debug/netcoreapp2.2/Flagger.Samples.SetAndReset.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/samples/setandreset",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "Flagger.Samples.SetAndUnset",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-setandunset",
+            "program": "${workspaceFolder}/src/samples/setandunset/bin/Debug/netcoreapp2.2/Flagger.Samples.SetAndUnset.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/samples/setandunset",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "Flagger.Samples.SetAndUnsetIfUnset",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-setandunsetifunset",
+            "program": "${workspaceFolder}/src/samples/setandunsetifunset/bin/Debug/netcoreapp2.2/Flagger.Samples.SetAndUnsetIfUnset.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/samples/setandunsetifunset",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "Flagger.Samples.Toggle",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-toggle",
+            "program": "${workspaceFolder}/src/samples/setandunset/bin/Debug/netcoreapp2.2/Flagger.Samples.Toggle.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/samples/toggle",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        },
+    ]
+}

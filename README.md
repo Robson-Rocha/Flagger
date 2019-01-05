@@ -1,6 +1,6 @@
 # Flagger
 
-[![HitCount](http://hits.dwyl.io/robson-rocha/flagger.svg)](http://hits.dwyl.io/robson-rocha/flagger)
+![Hit Count](http://hits.dwyl.io/robson-rocha/flagger.svg)
 ![Travis Build Status](https://travis-ci.org/Robson-Rocha/Flagger.svg?branch=master)
 ![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/i14mh50vtke5xrxw?svg=true)
 
@@ -25,6 +25,7 @@ Use [Flag.Toggle](#flagtogglemember) when you need to invert (toggle) momentaril
 ```csharp
 using Flagger;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Flagger.Samples.Toggle {
@@ -68,13 +69,14 @@ namespace Flagger.Samples.Toggle {
 }
 ```
 
-### 2. Setting and Resetting values with *[Flag.SetAndReset](#flagsetandresettmember-setvalue)*
+### 2. Setting and Resetting values with *[Flag.SetAndReset\<T\>](#flagsetandresettmember-setvalue)*
 
-Use [Flag.SetAndReset](#flagsetandresettmember-setvalue) when you need to set an arbitrary value to a field or property momentarily, and reset it back to its original value when done.
+Use [Flag.SetAndReset\<T\>](#flagsetandresettmember-setvalue) when you need to set an arbitrary value to a field or property momentarily, and reset it back to its original value when done.
 
 ```csharp
 using Flagger;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Flagger.Samples.SetAndReset {
@@ -128,6 +130,7 @@ If you need to set a ``bool`` variable, field or property to ``true`` and unset 
 ```csharp
 using Flagger;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Flagger.Samples.SetAndUnset {
@@ -171,57 +174,56 @@ namespace Flagger.Samples.SetAndUnset {
 }
 ```
 
+### 4. Setting and Unsetting values only if the initial value is equal to the unset value with *[Flag.SetAndUnsetIfUnset\<T\>](#flagsetandunsetifunsettmember-setvalue-unsetvalue)*
 
-### 4. Setting and Unsetting bool values only if the value is unset with *[Flag.SetAndUnsetIfUnset](#flagsetandunsetifunsetmember)*
-
-Use [Flag.SetAndUnsetIfUnset](#flagsetandunsetifunsetmember) when you need to set an specific initial value to a field or property to ``true`` momentarily, and to ``false`` when done, *but only if the initial value was not previously set to ``true``*, in this case, not changing the flag at all.
+Use [Flag.SetAndUnsetIfUnset\<T\>](#flagsetandunsetifunsettmember-setvalue-unsetvalue) when you need to set an specific initial value to a field or property momentarily, and a specific final value when done, *but only if the initial value is equal to the final value (i.e. it was not set yet)*, in this case, not changing the flag at all.
 
 This is specially useful in recursion scenarios, or when more than one method sets and unsets the same flag.
+
+If you need to set a ``bool`` variable, field or property to ``true`` and unset it to ``false`` only when the initial value of the variable, field or property is ``false`` (another common scenario), you can use the simpler [boolean version of the Flag.SetAndUnsetIfUnset](#flagsetandunsetifunsetmember) method.
 
 ```csharp
 using Flagger;
 using System;
-using System.Threading.Tasks;
 
 namespace Flagger.Samples.SetAndUnsetIfUnset {
 
   class Program {
 
     //String property to be set
-    static bool IsWorking { get; set; } = false;
+    static string Status { get; set; } = "Idle";
 
     //Recursive method which sets the property during operation to signal the UI
     static void DoWork(int recursionLevel = 0) {
       string padSpaces = new String(' ', recursionLevel);
 
-      // Should be false in first recursion level, and true otherwise
+      // Should be "Idle" in first recursion level, and "Busy" otherwise
       Console.WriteLine($"{padSpaces}At {nameof(recursionLevel)} {recursionLevel}, " + 
-                        $"before {nameof(Flag.SetAndUnsetIfUnset)}, {nameof(IsWorking)} is {IsWorking}");
+                        $"before {nameof(Flag.SetAndUnsetIfUnset)}, {nameof(Status)} is {Status}");
 
-      // At the begin of its lifetime, the Flag<bool> returned by the Flag.SetAndUnsetIfUnset will 
-      // set the IsWorking property to true if it is not already true
-      using(Flag.SetAndUnsetIfUnset(() => IsWorking)) { 
-        // Should be true
+      // At the begin of its lifetime, the Flag<string> returned by the Flag.SetAndUnsetIfUnset will 
+      // set the Status property to "Busy" if it is not already "Busy"
+      using(Flag.SetAndUnsetIfUnset(() => Status, "Busy", "Done")) { 
+        // Should be "Busy"
         Console.WriteLine($"{padSpaces} => At beginning of {nameof(Flag.SetAndUnsetIfUnset)}, " + 
-                          $"{nameof(IsWorking)} is {IsWorking}");
+                          $"{nameof(Status)} is {Status}");
 
         // Call the method recursively
         if(recursionLevel < 3) {
-          recursionLevel++;
-          DoWork(recursionLevel);
+          DoWork(recursionLevel + 1);
         }
 
-        // Should (still) be true
+        // Should (still) be "Busy"
         Console.WriteLine($"{padSpaces} => At end of {nameof(Flag.SetAndUnsetIfUnset)}, " +
-                          $"{nameof(IsWorking)} is {IsWorking}");
+                          $"{nameof(Status)} is {Status}");
 
-      // At the end of its lifetime, the Flag<bool> only will set the value of IsWorking to false
-      // if it was not previously true
+      // At the end of its lifetime, the Flag<string> only will set the value of Status to "Done"
+      // if it was not previously "Busy"
       }
 
-      // Should be false in first recursion level, and true otherwise
-      Console.WriteLine($"{padSpaces}At {nameof(recursionLevel)} {recursionLevel-1}, " +
-                        $"after {nameof(Flag.SetAndUnsetIfUnset)}, {nameof(IsWorking)} is {IsWorking}");
+      // Should be "Done" in first recursion level, and "Busy" otherwise
+      Console.WriteLine($"{padSpaces}At {nameof(recursionLevel)} {recursionLevel}, " +
+                        $"after {nameof(Flag.SetAndUnsetIfUnset)}, {nameof(Status)} is {Status}");
     }
 
     static void Main(string[] args) {
@@ -229,8 +231,8 @@ namespace Flagger.Samples.SetAndUnsetIfUnset {
     }
   }
 }
-```
 
+```
 
 ## Class Reference
 
@@ -239,11 +241,18 @@ namespace Flagger.Samples.SetAndUnsetIfUnset {
 | [Flag](#flag) | Contains several methods which allows to configure contextual flags |
 | [Flag\<T\>](#flag-t) | Allows for setting a value to the supplied member while the context lasts, and resetting the value on the context disposal |
 
-
 ### Flag
 
 Contains several methods which allows to configure contextual flags
 
+| Method | Description |
+| ------ | ----------- |
+| [Flag.Toggle (member)](#flagtogglemember) | Toggles the value of a member |
+| [Flag.SetAndReset\<T\> (member, setValue)](#flagsetandresettmember-setvalue) | Set and reset the value of a member |
+| [Flag.SetAndUnset\<T\> (member, setValue, unsetValue)](#flagsetandunsettmember-setvalue-unsetvalue) | Set and unset the value of a member |
+| [Flag.SetAndUnset (member)](#flagsetandunsetmember) | Set and unset the value of a boolean member |
+| [Flag.SetAndUnsetIfUnset\<T\> (member, setValue, unsetValue)](#flagsetandunsetifunsettmember-setvalue-unsetvalue) | Set and unset the value of a member if it is currently unset |
+| [Flag.SetAndUnsetIfUnset (member)](#flagsetandunsetifunsetmember) | Set and unset the value of a boolean member if it is currently false |
 
 #### Flag.Toggle(member)
 
@@ -258,9 +267,6 @@ Toggles (inverts) the value of the supplied boolean member
 *[Flag\<Boolean\>](#flag-t)*<br>
 Flag context which toggles the boolean member
 
-
-
-
 #### Flag.SetAndReset\<T\>(member, setValue)
 
 Sets the value of the supplied boolean member to the provided value, and reset it to its original value on the context disposal
@@ -274,21 +280,6 @@ Sets the value of the supplied boolean member to the provided value, and reset i
 
 *[Flag\<T\>](#flag-t)*<br>
 Flag context which sets and resets the member value
-
-
-
-#### Flag.SetAndUnset(member)
-
-Sets the value of the supplied boolean member to true on context creation, and set it to false on the context disposal
-
-| Parameter Name | Description |
-| -------------- | ----------- |
-| member | *[Expression](https://docs.microsoft.com/dotnet/api/expression-1)\<[Func](https://docs.microsoft.com/dotnet/api/func-1)\<[Boolean](https://docs.microsoft.com/dotnet/api/boolean)\>\>*<br>Lambda expression which indicates the boolean member to be toggled. |
-
-##### Returns
-
-*[Flag\<Boolean\>](#flag-t)*<br>
-Flag context which sets and unsets the member value
 
 #### Flag.SetAndUnset\<T\>(member, setValue, unsetValue)
 
@@ -305,6 +296,35 @@ Sets the value of the supplied member to the provided set value, and set it to t
 *[Flag\<T\>](#flag-t)*<br>
 Flag context which sets and unsets the member value
 
+#### Flag.SetAndUnset(member)
+
+Sets the value of the supplied boolean member to true on context creation, and set it to false on the context disposal
+
+| Parameter Name | Description |
+| -------------- | ----------- |
+| member | *[Expression](https://docs.microsoft.com/dotnet/api/expression-1)\<[Func](https://docs.microsoft.com/dotnet/api/func-1)\<[Boolean](https://docs.microsoft.com/dotnet/api/boolean)\>\>*<br>Lambda expression which indicates the boolean member to be toggled. |
+
+##### Returns
+
+*[Flag\<Boolean\>](#flag-t)*<br>
+Flag context which sets and unsets the member value
+
+#### Flag.SetAndUnsetIfUnset\<T\>(member, setValue, unsetValue)
+
+If the current value of the supplied member is not equal to the setValue parameter value, set it to the setValue on context creation, and set it to the unsetValue parameter value on the context disposal. Otherwise, keeps it unchanged;
+
+| Parameter Name | Description |
+| -------------- | ----------- |
+| member | *[Expression](https://docs.microsoft.com/dotnet/api/expression-1)\<[Func](https://docs.microsoft.com/dotnet/api/func-1)\<[Boolean](https://docs.microsoft.com/dotnet/api/boolean)\>\>*<br>Lambda expression which indicates the boolean member to be toggled. |
+| setValue | *\<T\>*<br>The value to be set at the context creation |
+| unsetValue | *\<T\>*<br>The value to be set at the contex disposal |
+
+##### Returns
+
+*[Flag\<T\>](#flag-t)*<br>
+Flag context which sets and unsets the member value
+
+
 #### Flag.SetAndUnsetIfUnset(member)
 
 If the current value of the supplied boolean member is false, set it to true on context creation, and set it to false on the context disposal. Otherwise, keeps it unchanged;
@@ -318,27 +338,16 @@ If the current value of the supplied boolean member is false, set it to true on 
 *[Flag\<Boolean\>](#flag-t)*<br>
 Flag context which sets and unsets the member value
 
-
-
 ### Flag \<T\>
 
-Allows for setting a value to the supplied member while the context lasts, and resetting the value on the context disposal
+Allows for setting a value to the supplied member while the context lasts, and resetting the value on the context disposal.
+You cannot instantiate this class directly, only through one of the [Flag](#flag) static class methods. Also, the only possible interaction with this class, besides creating it, which sets the initial value of a flag, is disposing it, which unsets the value of the flag.
+The specific conditional behaviors of *toggling*, *settting-resetting*, *setting-unsetting* and *non-recursively-set-unset* are provided by the [Flag](#flag) static class methods. 
 
 ##### Type Parameters
 
-- T - The type of the member to be set and reset
-
-#### *constructor* Flag(member, setValue, unsetValue)
-
-Creates a Flag context, assigning the setValue to the supplied member, and storing the unsetValue for reseting the member on the context disposal
-
-| Parameter Name | Description |
-| -------------- | ----------- |
-| member | [MemberExpression](https://docs.microsoft.com/dotnet/api/system.linq.expressions.memberexpression)<br>MemberExpression representing the member to be set and unset. |
-| setValue | *\<T\>*<br>The value to be set at the context creation |
-| unsetValue | *\<T\>*<br>The value to be set at the contex disposal |
-
+- T - The type of the member to be set and reset.
 
 #### Dispose
 
-Disposes of the flag context, resetting the supplied member value
+Disposes of the flag context, resetting the supplied member value.

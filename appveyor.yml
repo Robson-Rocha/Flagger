@@ -4,4 +4,13 @@ environment:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   DOTNET_CLI_TELEMETRY_OPTOUT: true
 build_script:
-- cmd: dotnet build src\flagger.csproj
+- cmd: >-
+    dotnet build src\lib\Flagger.csproj
+
+    dotnet build src\samples\setandreset\Flagger.Samples.SetAndReset.csproj
+
+    dotnet build src\samples\setandunset\Flagger.Samples.SetAndUnset.csproj
+
+    dotnet build src\samples\setandunsetifunset\Flagger.Samples.SetAndUnsetIfUnset.csproj
+
+    dotnet build src\samples\toggle\Flagger.Samples.Toggle.csproj

@@ -24,6 +24,7 @@ namespace Flagger
         /// </summary>
         /// <param name="member">Lambda expression which indicates the member to be set.</param>
         /// <param name="setValue">The value to be set at the context creation</param>
+        /// <typeparam name="T">The type of the member to be set and reset</typeparam>
         /// <returns>Flag context which sets and resets the member value</returns>
         public static Flag<T> SetAndReset<T>(Expression<Func<T>> member, T setValue)
         {
@@ -37,11 +38,10 @@ namespace Flagger
         /// <param name="member">Lambda expression which indicates the member to be set.</param>
         /// <param name="setValue">The value to be set at the context creation</param>
         /// <param name="unsetValue">The value to be set at the contex disposal</param>
+        /// <typeparam name="T">The type of the member to be set and reset</typeparam>
         /// <returns>Flag context which sets and unsets the member value</returns>
         public static Flag<T> SetAndUnset<T>(Expression<Func<T>> member, T setValue, T unsetValue)
-        {
-            return new Flag<T>((MemberExpression)member.Body, setValue, unsetValue);
-        }
+            => new Flag<T>((MemberExpression)member.Body, setValue, unsetValue);
 
         /// <summary>
         /// Sets the value of the supplied boolean member to true on context creation, and set it to false on the context disposal
@@ -49,8 +49,22 @@ namespace Flagger
         /// <param name="member">Lambda expression which indicates the member to be set.</param>
         /// <returns>Flag context which sets and unsets the member value</returns>
         public static Flag<bool> SetAndUnset(Expression<Func<bool>> member)
+            => SetAndUnset<bool>(member, true, false);
+
+        /// <summary>
+        /// If the current value of the supplied member is not equal to the setValue parameter value, set it to the setValue on context creation, and set it to the unsetValue parameter value on the context disposal. Otherwise, keeps it unchanged;
+        /// </summary>
+        /// <param name="member">Lambda expression which indicates the member to be set.</param>
+        /// <param name="setValue">The value to be set at the context creation</param>
+        /// <param name="unsetValue">The value to be set at the context disposal</param>
+        /// <typeparam name="T">The type of the member to be set and reset. Must implement IEquatable<T>.</typeparam>
+        /// <returns>Flag context which sets and unsets the member value</returns>
+        public static Flag<T> SetAndUnsetIfUnset<T>(Expression<Func<T>> member, T setValue, T unsetValue)
+            where T: IEquatable<T>
         {
-            return new Flag<bool>((MemberExpression)member.Body, true, false);
+            T currentValue = member.Compile()();
+            MemberExpression memberExpression = (MemberExpression)member.Body;
+            return (!currentValue.Equals(setValue)) ? new Flag<T>(memberExpression, setValue, unsetValue) : new Flag<T>();
         }
 
         /// <summary>
@@ -59,10 +73,6 @@ namespace Flagger
         /// <param name="member">Lambda expression which indicates the member to be set.</param>
         /// <returns>Flag context which sets and unsets the member value</returns>
         public static Flag<bool> SetAndUnsetIfUnset(Expression<Func<bool>> member)
-        {
-            bool currentValue = member.Compile()();
-            MemberExpression memberExpression = (MemberExpression)member.Body;
-            return (currentValue == false) ? new Flag<bool>(memberExpression, true, false) : new Flag<bool>(memberExpression, currentValue, currentValue);
-        }
+            => SetAndUnsetIfUnset<bool>(member, true, false);
     }
 }

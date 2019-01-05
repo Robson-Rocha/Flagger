@@ -27,7 +27,7 @@ namespace Flagger
         /// <param name="member"><see cref="MemberExpression"/>MemberExpression</see> representing the member to be set and unset.</param>
         /// <param name="setValue">The value to be set at the context creation</param>
         /// <param name="unsetValue">The value to be set at the contex disposal</param>
-        public Flag(MemberExpression member, T setValue, T unsetValue)
+        internal Flag(MemberExpression member, T setValue, T unsetValue)
         {
             _member = member;
             _setValue = Expression.Constant(setValue);
@@ -36,11 +36,19 @@ namespace Flagger
         }
 
         /// <summary>
+        /// Creates an empty Flag context, wich does nothing neither at creation nor at disposal
+        /// </summary>
+        internal Flag()
+        {
+        }
+
+        /// <summary>
         /// Disposes of the flag context, resetting the supplied member value
         /// </summary>
         public void Dispose()
         {
-            AssignConstantValueToMember(_unsetValue);
+            if (_member != null)
+                AssignConstantValueToMember(_unsetValue);
         }
     }
 }

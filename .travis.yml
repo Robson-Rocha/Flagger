@@ -4,6 +4,11 @@ dist: xenial
 mono: none
 dotnet: 2.2.101
 global:
-  - DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true DOTNET_CLI_TELEMETRY_OPTOUT=true
+  - DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true 
+  - DOTNET_CLI_TELEMETRY_OPTOUT=true
 script:
-  - dotnet build ./src/Flagger.csproj
+  - dotnet build ./src/lib/Flagger.csproj
+  - dotnet build ./src/samples/setandreset/Flagger.Samples.SetAndReset.csproj
+  - dotnet build ./src/samples/setandunset/Flagger.Samples.SetAndUnset.csproj
+  - dotnet build ./src/samples/setandunsetifunset/Flagger.Samples.SetAndUnsetIfUnset.csproj
+  - dotnet build ./src/samples/toggle/Flagger.Samples.Toggle.csproj
