@@ -315,7 +315,7 @@ If the current value of the supplied member is not equal to the setValue paramet
 
 | Parameter Name | Description |
 | -------------- | ----------- |
-| member | *[Expression](https://docs.microsoft.com/dotnet/api/expression-1)\<[Func](https://docs.microsoft.com/dotnet/api/func-1)\<[Boolean](https://docs.microsoft.com/dotnet/api/boolean)\>\>*<br>Lambda expression which indicates the boolean member to be toggled. |
+| member | *[Expression](https://docs.microsoft.com/dotnet/api/expression-1)\<[Func](https://docs.microsoft.com/dotnet/api/func-1)\<T\>\>*<br>Lambda expression which indicates the member to be set. |
 | setValue | *\<T\>*<br>The value to be set at the context creation |
 | unsetValue | *\<T\>*<br>The value to be set at the contex disposal |
 
