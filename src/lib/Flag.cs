@@ -56,10 +56,10 @@ namespace Flagger
         /// </summary>
         /// <param name="member">Lambda expression which indicates the member to be set.</param>
         /// <param name="setValue">The value to be set at the context creation</param>
-        /// <param name="unsetValue">The value to be set at the context disposal</param>
+        /// <param name="unsetValue">Optional. The value to be set at the context disposal</param>
         /// <typeparam name="T">The type of the member to be set and reset. Must implement IEquatable<T>.</typeparam>
         /// <returns>Flag context which sets and unsets the member value</returns>
-        public static Flag<T> SetAndUnsetIfUnset<T>(Expression<Func<T>> member, T setValue, T unsetValue)
+        public static Flag<T> SetAndUnsetIfUnset<T>(Expression<Func<T>> member, T setValue, T unsetValue = default(T))
             where T: IEquatable<T>
         {
             T currentValue = member.Compile()();
