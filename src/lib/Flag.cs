@@ -64,7 +64,14 @@ namespace Flagger
         {
             T currentValue = member.Compile()();
             MemberExpression memberExpression = (MemberExpression)member.Body;
-            return (!currentValue.Equals(setValue)) ? new Flag<T>(memberExpression, setValue, unsetValue) : new Flag<T>();
+            bool isNotSet = true;
+
+            if(currentValue == null)
+                isNotSet = setValue != null;                
+            else
+                isNotSet = !currentValue.Equals(setValue);
+
+            return (isNotSet) ? new Flag<T>(memberExpression, setValue, unsetValue) : new Flag<T>();
         }
 
         /// <summary>

@@ -30,8 +30,8 @@ namespace Flagger
         internal Flag(MemberExpression member, T setValue, T unsetValue)
         {
             _member = member;
-            _setValue = Expression.Constant(setValue);
-            _unsetValue = Expression.Constant(unsetValue);
+            _setValue = Expression.Constant(setValue, typeof(T));
+            _unsetValue = Expression.Constant(unsetValue, typeof(T));
             AssignConstantValueToMember(_setValue);
         }
 

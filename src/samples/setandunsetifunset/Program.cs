@@ -6,7 +6,7 @@ namespace Flagger.Samples.SetAndUnsetIfUnset {
   class Program {
 
     //String property to be set
-    static string Status { get; set; } = "Idle";
+    static string Status { get; set; } = null;
 
     //Recursive method which sets the property during operation to signal the UI
     static void DoWork(int recursionLevel = 0) {
@@ -18,7 +18,7 @@ namespace Flagger.Samples.SetAndUnsetIfUnset {
 
       // At the begin of its lifetime, the Flag<string> returned by the Flag.SetAndUnsetIfUnset will 
       // set the Status property to "Busy" if it is not already "Busy"
-      using(Flag.SetAndUnsetIfUnset(() => Status, "Busy", "Done")) { 
+      using(Flag.SetAndUnsetIfUnset(() => Status, "Busy")) { 
         // Should be "Busy"
         Console.WriteLine($"{padSpaces} => At beginning of {nameof(Flag.SetAndUnsetIfUnset)}, " + 
                           $"{nameof(Status)} is {Status}");
