@@ -1,9 +1,0 @@
-### YamlMime:TableOfContent
-- uid: Flagger
-  name: Flagger
-  items:
-  - uid: Flagger.Flag
-    name: Flag
-  - uid: Flagger.Flag`1
-    name: Flag<T>
-    name.vb: Flag(Of T)
