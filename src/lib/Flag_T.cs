@@ -24,7 +24,7 @@ namespace Flagger
         /// <summary>
         /// Creates a Flag context, assigning the setValue to the supplied member, and storing the unsetValue for reseting the member on the context disposal
         /// </summary>
-        /// <param name="member"><see cref="MemberExpression"/>MemberExpression</see> representing the member to be set and unset.</param>
+        /// <param name="member"><see cref="MemberExpression">MemberExpression</see> representing the member to be set and unset.</param>
         /// <param name="setValue">The value to be set at the context creation</param>
         /// <param name="unsetValue">The value to be set at the contex disposal</param>
         internal Flag(MemberExpression member, T setValue, T unsetValue)
