@@ -1,0 +1,123 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Flagger
+  name: Flagger
+  href: api/Flagger.html
+  commentId: N:Flagger
+  fullName: Flagger
+  nameWithType: Flagger
+- uid: Flagger.Flag
+  name: Flag
+  href: api/Flagger.Flag.html
+  commentId: T:Flagger.Flag
+  fullName: Flagger.Flag
+  nameWithType: Flag
+- uid: Flagger.Flag.SetAndReset*
+  name: SetAndReset
+  href: api/Flagger.Flag.html#Flagger_Flag_SetAndReset_
+  commentId: Overload:Flagger.Flag.SetAndReset
+  isSpec: "True"
+  fullName: Flagger.Flag.SetAndReset
+  nameWithType: Flag.SetAndReset
+- uid: Flagger.Flag.SetAndReset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0)
+  name: SetAndReset<T>(Expression<Func<T>>, T)
+  href: api/Flagger.Flag.html#Flagger_Flag_SetAndReset__1_System_Linq_Expressions_Expression_System_Func___0_____0_
+  commentId: M:Flagger.Flag.SetAndReset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0)
+  name.vb: SetAndReset(Of T)(Expression(Of Func(Of T)), T)
+  fullName: Flagger.Flag.SetAndReset<T>(System.Linq.Expressions.Expression<System.Func<T>>, T)
+  fullName.vb: Flagger.Flag.SetAndReset(Of T)(System.Linq.Expressions.Expression(Of System.Func(Of T)), T)
+  nameWithType: Flag.SetAndReset<T>(Expression<Func<T>>, T)
+  nameWithType.vb: Flag.SetAndReset(Of T)(Expression(Of Func(Of T)), T)
+- uid: Flagger.Flag.SetAndUnset(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  name: SetAndUnset(Expression<Func<Boolean>>)
+  href: api/Flagger.Flag.html#Flagger_Flag_SetAndUnset_System_Linq_Expressions_Expression_System_Func_System_Boolean___
+  commentId: M:Flagger.Flag.SetAndUnset(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  name.vb: SetAndUnset(Expression(Of Func(Of Boolean)))
+  fullName: Flagger.Flag.SetAndUnset(System.Linq.Expressions.Expression<System.Func<System.Boolean>>)
+  fullName.vb: Flagger.Flag.SetAndUnset(System.Linq.Expressions.Expression(Of System.Func(Of System.Boolean)))
+  nameWithType: Flag.SetAndUnset(Expression<Func<Boolean>>)
+  nameWithType.vb: Flag.SetAndUnset(Expression(Of Func(Of Boolean)))
+- uid: Flagger.Flag.SetAndUnset*
+  name: SetAndUnset
+  href: api/Flagger.Flag.html#Flagger_Flag_SetAndUnset_
+  commentId: Overload:Flagger.Flag.SetAndUnset
+  isSpec: "True"
+  fullName: Flagger.Flag.SetAndUnset
+  nameWithType: Flag.SetAndUnset
+- uid: Flagger.Flag.SetAndUnset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0)
+  name: SetAndUnset<T>(Expression<Func<T>>, T, T)
+  href: api/Flagger.Flag.html#Flagger_Flag_SetAndUnset__1_System_Linq_Expressions_Expression_System_Func___0_____0___0_
+  commentId: M:Flagger.Flag.SetAndUnset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0)
+  name.vb: SetAndUnset(Of T)(Expression(Of Func(Of T)), T, T)
+  fullName: Flagger.Flag.SetAndUnset<T>(System.Linq.Expressions.Expression<System.Func<T>>, T, T)
+  fullName.vb: Flagger.Flag.SetAndUnset(Of T)(System.Linq.Expressions.Expression(Of System.Func(Of T)), T, T)
+  nameWithType: Flag.SetAndUnset<T>(Expression<Func<T>>, T, T)
+  nameWithType.vb: Flag.SetAndUnset(Of T)(Expression(Of Func(Of T)), T, T)
+- uid: Flagger.Flag.SetAndUnsetIfUnset(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  name: SetAndUnsetIfUnset(Expression<Func<Boolean>>)
+  href: api/Flagger.Flag.html#Flagger_Flag_SetAndUnsetIfUnset_System_Linq_Expressions_Expression_System_Func_System_Boolean___
+  commentId: M:Flagger.Flag.SetAndUnsetIfUnset(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  name.vb: SetAndUnsetIfUnset(Expression(Of Func(Of Boolean)))
+  fullName: Flagger.Flag.SetAndUnsetIfUnset(System.Linq.Expressions.Expression<System.Func<System.Boolean>>)
+  fullName.vb: Flagger.Flag.SetAndUnsetIfUnset(System.Linq.Expressions.Expression(Of System.Func(Of System.Boolean)))
+  nameWithType: Flag.SetAndUnsetIfUnset(Expression<Func<Boolean>>)
+  nameWithType.vb: Flag.SetAndUnsetIfUnset(Expression(Of Func(Of Boolean)))
+- uid: Flagger.Flag.SetAndUnsetIfUnset*
+  name: SetAndUnsetIfUnset
+  href: api/Flagger.Flag.html#Flagger_Flag_SetAndUnsetIfUnset_
+  commentId: Overload:Flagger.Flag.SetAndUnsetIfUnset
+  isSpec: "True"
+  fullName: Flagger.Flag.SetAndUnsetIfUnset
+  nameWithType: Flag.SetAndUnsetIfUnset
+- uid: Flagger.Flag.SetAndUnsetIfUnset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0)
+  name: SetAndUnsetIfUnset<T>(Expression<Func<T>>, T, T)
+  href: api/Flagger.Flag.html#Flagger_Flag_SetAndUnsetIfUnset__1_System_Linq_Expressions_Expression_System_Func___0_____0___0_
+  commentId: M:Flagger.Flag.SetAndUnsetIfUnset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0)
+  name.vb: SetAndUnsetIfUnset(Of T)(Expression(Of Func(Of T)), T, T)
+  fullName: Flagger.Flag.SetAndUnsetIfUnset<T>(System.Linq.Expressions.Expression<System.Func<T>>, T, T)
+  fullName.vb: Flagger.Flag.SetAndUnsetIfUnset(Of T)(System.Linq.Expressions.Expression(Of System.Func(Of T)), T, T)
+  nameWithType: Flag.SetAndUnsetIfUnset<T>(Expression<Func<T>>, T, T)
+  nameWithType.vb: Flag.SetAndUnsetIfUnset(Of T)(Expression(Of Func(Of T)), T, T)
+- uid: Flagger.Flag.Toggle(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  name: Toggle(Expression<Func<Boolean>>)
+  href: api/Flagger.Flag.html#Flagger_Flag_Toggle_System_Linq_Expressions_Expression_System_Func_System_Boolean___
+  commentId: M:Flagger.Flag.Toggle(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  name.vb: Toggle(Expression(Of Func(Of Boolean)))
+  fullName: Flagger.Flag.Toggle(System.Linq.Expressions.Expression<System.Func<System.Boolean>>)
+  fullName.vb: Flagger.Flag.Toggle(System.Linq.Expressions.Expression(Of System.Func(Of System.Boolean)))
+  nameWithType: Flag.Toggle(Expression<Func<Boolean>>)
+  nameWithType.vb: Flag.Toggle(Expression(Of Func(Of Boolean)))
+- uid: Flagger.Flag.Toggle*
+  name: Toggle
+  href: api/Flagger.Flag.html#Flagger_Flag_Toggle_
+  commentId: Overload:Flagger.Flag.Toggle
+  isSpec: "True"
+  fullName: Flagger.Flag.Toggle
+  nameWithType: Flag.Toggle
+- uid: Flagger.Flag`1
+  name: Flag<T>
+  href: api/Flagger.Flag-1.html
+  commentId: T:Flagger.Flag`1
+  name.vb: Flag(Of T)
+  fullName: Flagger.Flag<T>
+  fullName.vb: Flagger.Flag(Of T)
+  nameWithType: Flag<T>
+  nameWithType.vb: Flag(Of T)
+- uid: Flagger.Flag`1.Dispose
+  name: Dispose()
+  href: api/Flagger.Flag-1.html#Flagger_Flag_1_Dispose
+  commentId: M:Flagger.Flag`1.Dispose
+  fullName: Flagger.Flag<T>.Dispose()
+  fullName.vb: Flagger.Flag(Of T).Dispose()
+  nameWithType: Flag<T>.Dispose()
+  nameWithType.vb: Flag(Of T).Dispose()
+- uid: Flagger.Flag`1.Dispose*
+  name: Dispose
+  href: api/Flagger.Flag-1.html#Flagger_Flag_1_Dispose_
+  commentId: Overload:Flagger.Flag`1.Dispose
+  isSpec: "True"
+  fullName: Flagger.Flag<T>.Dispose
+  fullName.vb: Flagger.Flag(Of T).Dispose
+  nameWithType: Flag<T>.Dispose
+  nameWithType.vb: Flag(Of T).Dispose

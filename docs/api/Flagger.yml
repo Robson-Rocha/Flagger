@@ -1,0 +1,59 @@
+### YamlMime:ManagedReference
+items:
+- uid: Flagger
+  commentId: N:Flagger
+  id: Flagger
+  children:
+  - Flagger.Flag
+  - Flagger.Flag`1
+  langs:
+  - csharp
+  - vb
+  name: Flagger
+  nameWithType: Flagger
+  fullName: Flagger
+  type: Namespace
+  assemblies:
+  - Flagger
+references:
+- uid: Flagger.Flag
+  commentId: T:Flagger.Flag
+  name: Flag
+  nameWithType: Flag
+  fullName: Flagger.Flag
+- uid: Flagger.Flag`1
+  commentId: T:Flagger.Flag`1
+  name: Flag<T>
+  nameWithType: Flag<T>
+  fullName: Flagger.Flag<T>
+  nameWithType.vb: Flag(Of T)
+  fullName.vb: Flagger.Flag(Of T)
+  name.vb: Flag(Of T)
+  spec.csharp:
+  - uid: Flagger.Flag`1
+    name: Flag
+    nameWithType: Flag
+    fullName: Flagger.Flag
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Flagger.Flag`1
+    name: Flag
+    nameWithType: Flag
+    fullName: Flagger.Flag
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

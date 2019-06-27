@@ -1,0 +1,961 @@
+### YamlMime:ManagedReference
+items:
+- uid: Flagger.Flag
+  commentId: T:Flagger.Flag
+  id: Flag
+  parent: Flagger
+  children:
+  - Flagger.Flag.SetAndReset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0)
+  - Flagger.Flag.SetAndUnset(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  - Flagger.Flag.SetAndUnset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0)
+  - Flagger.Flag.SetAndUnsetIfUnset(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  - Flagger.Flag.SetAndUnsetIfUnset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0)
+  - Flagger.Flag.Toggle(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  langs:
+  - csharp
+  - vb
+  name: Flag
+  nameWithType: Flag
+  fullName: Flagger.Flag
+  type: Class
+  source:
+    remote:
+      path: src/lib/Flag.cs
+      branch: master
+      repo: https://github.com/Robson-Rocha/Flagger.git
+    id: Flag
+    path: ../src/lib/Flag.cs
+    startLine: 8
+  assemblies:
+  - Flagger
+  namespace: Flagger
+  summary: "\nContains several methods which allows to configure contextual flags\n"
+  example: []
+  syntax:
+    content: public static class Flag
+    content.vb: Public Module Flag
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Flagger.Flag.Toggle(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  commentId: M:Flagger.Flag.Toggle(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  id: Toggle(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  parent: Flagger.Flag
+  langs:
+  - csharp
+  - vb
+  name: Toggle(Expression<Func<Boolean>>)
+  nameWithType: Flag.Toggle(Expression<Func<Boolean>>)
+  fullName: Flagger.Flag.Toggle(System.Linq.Expressions.Expression<System.Func<System.Boolean>>)
+  type: Method
+  source:
+    remote:
+      path: src/lib/Flag.cs
+      branch: master
+      repo: https://github.com/Robson-Rocha/Flagger.git
+    id: Toggle
+    path: ../src/lib/Flag.cs
+    startLine: 15
+  assemblies:
+  - Flagger
+  namespace: Flagger
+  summary: "\nToggles (inverts) the value of the supplied boolean member\n"
+  example: []
+  syntax:
+    content: public static Flag<bool> Toggle(Expression<Func<bool>> member)
+    parameters:
+    - id: member
+      type: System.Linq.Expressions.Expression{System.Func{System.Boolean}}
+      description: Lambda expression which indicates the boolean member to be toggled.
+    return:
+      type: Flagger.Flag{System.Boolean}
+      description: Flag context which toggles the boolean member
+    content.vb: Public Shared Function Toggle(member As Expression(Of Func(Of Boolean))) As Flag(Of Boolean)
+  overload: Flagger.Flag.Toggle*
+  nameWithType.vb: Flag.Toggle(Expression(Of Func(Of Boolean)))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Flagger.Flag.Toggle(System.Linq.Expressions.Expression(Of System.Func(Of System.Boolean)))
+  name.vb: Toggle(Expression(Of Func(Of Boolean)))
+- uid: Flagger.Flag.SetAndReset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0)
+  commentId: M:Flagger.Flag.SetAndReset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0)
+  id: SetAndReset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0)
+  parent: Flagger.Flag
+  langs:
+  - csharp
+  - vb
+  name: SetAndReset<T>(Expression<Func<T>>, T)
+  nameWithType: Flag.SetAndReset<T>(Expression<Func<T>>, T)
+  fullName: Flagger.Flag.SetAndReset<T>(System.Linq.Expressions.Expression<System.Func<T>>, T)
+  type: Method
+  source:
+    remote:
+      path: src/lib/Flag.cs
+      branch: master
+      repo: https://github.com/Robson-Rocha/Flagger.git
+    id: SetAndReset
+    path: ../src/lib/Flag.cs
+    startLine: 28
+  assemblies:
+  - Flagger
+  namespace: Flagger
+  summary: "\nSets the value of the supplied boolean member to the provided value, and reset it to its original value on the context disposal\n"
+  example: []
+  syntax:
+    content: public static Flag<T> SetAndReset<T>(Expression<Func<T>> member, T setValue)
+    parameters:
+    - id: member
+      type: System.Linq.Expressions.Expression{System.Func{{T}}}
+      description: Lambda expression which indicates the member to be set.
+    - id: setValue
+      type: '{T}'
+      description: The value to be set at the context creation
+    typeParameters:
+    - id: T
+      description: The type of the member to be set and reset
+    return:
+      type: Flagger.Flag{{T}}
+      description: Flag context which sets and resets the member value
+    content.vb: Public Shared Function SetAndReset(Of T)(member As Expression(Of Func(Of T)), setValue As T) As Flag(Of T)
+  overload: Flagger.Flag.SetAndReset*
+  nameWithType.vb: Flag.SetAndReset(Of T)(Expression(Of Func(Of T)), T)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Flagger.Flag.SetAndReset(Of T)(System.Linq.Expressions.Expression(Of System.Func(Of T)), T)
+  name.vb: SetAndReset(Of T)(Expression(Of Func(Of T)), T)
+- uid: Flagger.Flag.SetAndUnset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0)
+  commentId: M:Flagger.Flag.SetAndUnset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0)
+  id: SetAndUnset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0)
+  parent: Flagger.Flag
+  langs:
+  - csharp
+  - vb
+  name: SetAndUnset<T>(Expression<Func<T>>, T, T)
+  nameWithType: Flag.SetAndUnset<T>(Expression<Func<T>>, T, T)
+  fullName: Flagger.Flag.SetAndUnset<T>(System.Linq.Expressions.Expression<System.Func<T>>, T, T)
+  type: Method
+  source:
+    remote:
+      path: src/lib/Flag.cs
+      branch: master
+      repo: https://github.com/Robson-Rocha/Flagger.git
+    id: SetAndUnset
+    path: ../src/lib/Flag.cs
+    startLine: 42
+  assemblies:
+  - Flagger
+  namespace: Flagger
+  summary: "\nSets the value of the supplied member to the provided set value, and set it to the provided unset value on the context disposal\n"
+  example: []
+  syntax:
+    content: public static Flag<T> SetAndUnset<T>(Expression<Func<T>> member, T setValue, T unsetValue)
+    parameters:
+    - id: member
+      type: System.Linq.Expressions.Expression{System.Func{{T}}}
+      description: Lambda expression which indicates the member to be set.
+    - id: setValue
+      type: '{T}'
+      description: The value to be set at the context creation
+    - id: unsetValue
+      type: '{T}'
+      description: The value to be set at the contex disposal
+    typeParameters:
+    - id: T
+      description: The type of the member to be set and reset
+    return:
+      type: Flagger.Flag{{T}}
+      description: Flag context which sets and unsets the member value
+    content.vb: Public Shared Function SetAndUnset(Of T)(member As Expression(Of Func(Of T)), setValue As T, unsetValue As T) As Flag(Of T)
+  overload: Flagger.Flag.SetAndUnset*
+  nameWithType.vb: Flag.SetAndUnset(Of T)(Expression(Of Func(Of T)), T, T)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Flagger.Flag.SetAndUnset(Of T)(System.Linq.Expressions.Expression(Of System.Func(Of T)), T, T)
+  name.vb: SetAndUnset(Of T)(Expression(Of Func(Of T)), T, T)
+- uid: Flagger.Flag.SetAndUnset(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  commentId: M:Flagger.Flag.SetAndUnset(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  id: SetAndUnset(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  parent: Flagger.Flag
+  langs:
+  - csharp
+  - vb
+  name: SetAndUnset(Expression<Func<Boolean>>)
+  nameWithType: Flag.SetAndUnset(Expression<Func<Boolean>>)
+  fullName: Flagger.Flag.SetAndUnset(System.Linq.Expressions.Expression<System.Func<System.Boolean>>)
+  type: Method
+  source:
+    remote:
+      path: src/lib/Flag.cs
+      branch: master
+      repo: https://github.com/Robson-Rocha/Flagger.git
+    id: SetAndUnset
+    path: ../src/lib/Flag.cs
+    startLine: 50
+  assemblies:
+  - Flagger
+  namespace: Flagger
+  summary: "\nSets the value of the supplied boolean member to true on context creation, and set it to false on the context disposal\n"
+  example: []
+  syntax:
+    content: public static Flag<bool> SetAndUnset(Expression<Func<bool>> member)
+    parameters:
+    - id: member
+      type: System.Linq.Expressions.Expression{System.Func{System.Boolean}}
+      description: Lambda expression which indicates the member to be set.
+    return:
+      type: Flagger.Flag{System.Boolean}
+      description: Flag context which sets and unsets the member value
+    content.vb: Public Shared Function SetAndUnset(member As Expression(Of Func(Of Boolean))) As Flag(Of Boolean)
+  overload: Flagger.Flag.SetAndUnset*
+  nameWithType.vb: Flag.SetAndUnset(Expression(Of Func(Of Boolean)))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Flagger.Flag.SetAndUnset(System.Linq.Expressions.Expression(Of System.Func(Of System.Boolean)))
+  name.vb: SetAndUnset(Expression(Of Func(Of Boolean)))
+- uid: Flagger.Flag.SetAndUnsetIfUnset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0)
+  commentId: M:Flagger.Flag.SetAndUnsetIfUnset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0)
+  id: SetAndUnsetIfUnset``1(System.Linq.Expressions.Expression{System.Func{``0}},``0,``0)
+  parent: Flagger.Flag
+  langs:
+  - csharp
+  - vb
+  name: SetAndUnsetIfUnset<T>(Expression<Func<T>>, T, T)
+  nameWithType: Flag.SetAndUnsetIfUnset<T>(Expression<Func<T>>, T, T)
+  fullName: Flagger.Flag.SetAndUnsetIfUnset<T>(System.Linq.Expressions.Expression<System.Func<T>>, T, T)
+  type: Method
+  source:
+    remote:
+      path: src/lib/Flag.cs
+      branch: master
+      repo: https://github.com/Robson-Rocha/Flagger.git
+    id: SetAndUnsetIfUnset
+    path: ../src/lib/Flag.cs
+    startLine: 61
+  assemblies:
+  - Flagger
+  namespace: Flagger
+  summary: "\nIf the current value of the supplied member is not equal to the setValue parameter value, set it to the setValue on context creation, and set it to the unsetValue parameter value on the context disposal. Otherwise, keeps it unchanged;\n"
+  example: []
+  syntax:
+    content: >-
+      public static Flag<T> SetAndUnsetIfUnset<T>(Expression<Func<T>> member, T setValue, T unsetValue = null)
+
+          where T : IEquatable<T>
+    parameters:
+    - id: member
+      type: System.Linq.Expressions.Expression{System.Func{{T}}}
+      description: Lambda expression which indicates the member to be set.
+    - id: setValue
+      type: '{T}'
+      description: The value to be set at the context creation
+    - id: unsetValue
+      type: '{T}'
+      description: Optional. The value to be set at the context disposal
+    typeParameters:
+    - id: T
+      description: The type of the member to be set and reset. Must implement IEquatable&lt;T>.
+    return:
+      type: Flagger.Flag{{T}}
+      description: Flag context which sets and unsets the member value
+    content.vb: Public Shared Function SetAndUnsetIfUnset(Of T As IEquatable(Of T))(member As Expression(Of Func(Of T)), setValue As T, unsetValue As T = Nothing) As Flag(Of T)
+  overload: Flagger.Flag.SetAndUnsetIfUnset*
+  nameWithType.vb: Flag.SetAndUnsetIfUnset(Of T)(Expression(Of Func(Of T)), T, T)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Flagger.Flag.SetAndUnsetIfUnset(Of T)(System.Linq.Expressions.Expression(Of System.Func(Of T)), T, T)
+  name.vb: SetAndUnsetIfUnset(Of T)(Expression(Of Func(Of T)), T, T)
+- uid: Flagger.Flag.SetAndUnsetIfUnset(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  commentId: M:Flagger.Flag.SetAndUnsetIfUnset(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  id: SetAndUnsetIfUnset(System.Linq.Expressions.Expression{System.Func{System.Boolean}})
+  parent: Flagger.Flag
+  langs:
+  - csharp
+  - vb
+  name: SetAndUnsetIfUnset(Expression<Func<Boolean>>)
+  nameWithType: Flag.SetAndUnsetIfUnset(Expression<Func<Boolean>>)
+  fullName: Flagger.Flag.SetAndUnsetIfUnset(System.Linq.Expressions.Expression<System.Func<System.Boolean>>)
+  type: Method
+  source:
+    remote:
+      path: src/lib/Flag.cs
+      branch: master
+      repo: https://github.com/Robson-Rocha/Flagger.git
+    id: SetAndUnsetIfUnset
+    path: ../src/lib/Flag.cs
+    startLine: 81
+  assemblies:
+  - Flagger
+  namespace: Flagger
+  summary: "\nIf the current value of the supplied boolean member is false, set it to true on context creation, and set it to false on the context disposal. Otherwise, keeps it unchanged;\n"
+  example: []
+  syntax:
+    content: public static Flag<bool> SetAndUnsetIfUnset(Expression<Func<bool>> member)
+    parameters:
+    - id: member
+      type: System.Linq.Expressions.Expression{System.Func{System.Boolean}}
+      description: Lambda expression which indicates the member to be set.
+    return:
+      type: Flagger.Flag{System.Boolean}
+      description: Flag context which sets and unsets the member value
+    content.vb: Public Shared Function SetAndUnsetIfUnset(member As Expression(Of Func(Of Boolean))) As Flag(Of Boolean)
+  overload: Flagger.Flag.SetAndUnsetIfUnset*
+  nameWithType.vb: Flag.SetAndUnsetIfUnset(Expression(Of Func(Of Boolean)))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Flagger.Flag.SetAndUnsetIfUnset(System.Linq.Expressions.Expression(Of System.Func(Of System.Boolean)))
+  name.vb: SetAndUnsetIfUnset(Expression(Of Func(Of Boolean)))
+references:
+- uid: Flagger
+  commentId: N:Flagger
+  name: Flagger
+  nameWithType: Flagger
+  fullName: Flagger
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Flagger.Flag.Toggle*
+  commentId: Overload:Flagger.Flag.Toggle
+  name: Toggle
+  nameWithType: Flag.Toggle
+  fullName: Flagger.Flag.Toggle
+- uid: System.Linq.Expressions.Expression{System.Func{System.Boolean}}
+  commentId: T:System.Linq.Expressions.Expression{System.Func{System.Boolean}}
+  parent: System.Linq.Expressions
+  definition: System.Linq.Expressions.Expression`1
+  name: Expression<Func<Boolean>>
+  nameWithType: Expression<Func<Boolean>>
+  fullName: System.Linq.Expressions.Expression<System.Func<System.Boolean>>
+  nameWithType.vb: Expression(Of Func(Of Boolean))
+  fullName.vb: System.Linq.Expressions.Expression(Of System.Func(Of System.Boolean))
+  name.vb: Expression(Of Func(Of Boolean))
+  spec.csharp:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Flagger.Flag{System.Boolean}
+  commentId: T:Flagger.Flag{System.Boolean}
+  parent: Flagger
+  definition: Flagger.Flag`1
+  name: Flag<Boolean>
+  nameWithType: Flag<Boolean>
+  fullName: Flagger.Flag<System.Boolean>
+  nameWithType.vb: Flag(Of Boolean)
+  fullName.vb: Flagger.Flag(Of System.Boolean)
+  name.vb: Flag(Of Boolean)
+  spec.csharp:
+  - uid: Flagger.Flag`1
+    name: Flag
+    nameWithType: Flag
+    fullName: Flagger.Flag
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Flagger.Flag`1
+    name: Flag
+    nameWithType: Flag
+    fullName: Flagger.Flag
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Linq.Expressions.Expression`1
+  commentId: T:System.Linq.Expressions.Expression`1
+  isExternal: true
+  name: Expression<TDelegate>
+  nameWithType: Expression<TDelegate>
+  fullName: System.Linq.Expressions.Expression<TDelegate>
+  nameWithType.vb: Expression(Of TDelegate)
+  fullName.vb: System.Linq.Expressions.Expression(Of TDelegate)
+  name.vb: Expression(Of TDelegate)
+  spec.csharp:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TDelegate
+    nameWithType: TDelegate
+    fullName: TDelegate
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TDelegate
+    nameWithType: TDelegate
+    fullName: TDelegate
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Linq.Expressions
+  commentId: N:System.Linq.Expressions
+  isExternal: true
+  name: System.Linq.Expressions
+  nameWithType: System.Linq.Expressions
+  fullName: System.Linq.Expressions
+- uid: Flagger.Flag`1
+  commentId: T:Flagger.Flag`1
+  name: Flag<T>
+  nameWithType: Flag<T>
+  fullName: Flagger.Flag<T>
+  nameWithType.vb: Flag(Of T)
+  fullName.vb: Flagger.Flag(Of T)
+  name.vb: Flag(Of T)
+  spec.csharp:
+  - uid: Flagger.Flag`1
+    name: Flag
+    nameWithType: Flag
+    fullName: Flagger.Flag
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Flagger.Flag`1
+    name: Flag
+    nameWithType: Flag
+    fullName: Flagger.Flag
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Flagger.Flag.SetAndReset*
+  commentId: Overload:Flagger.Flag.SetAndReset
+  name: SetAndReset
+  nameWithType: Flag.SetAndReset
+  fullName: Flagger.Flag.SetAndReset
+- uid: System.Linq.Expressions.Expression{System.Func{{T}}}
+  commentId: T:System.Linq.Expressions.Expression{System.Func{``0}}
+  parent: System.Linq.Expressions
+  definition: System.Linq.Expressions.Expression`1
+  name: Expression<Func<T>>
+  nameWithType: Expression<Func<T>>
+  fullName: System.Linq.Expressions.Expression<System.Func<T>>
+  nameWithType.vb: Expression(Of Func(Of T))
+  fullName.vb: System.Linq.Expressions.Expression(Of System.Func(Of T))
+  name.vb: Expression(Of Func(Of T))
+  spec.csharp:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Flagger.Flag{{T}}
+  commentId: T:Flagger.Flag{``0}
+  parent: Flagger
+  definition: Flagger.Flag`1
+  name: Flag<T>
+  nameWithType: Flag<T>
+  fullName: Flagger.Flag<T>
+  nameWithType.vb: Flag(Of T)
+  fullName.vb: Flagger.Flag(Of T)
+  name.vb: Flag(Of T)
+  spec.csharp:
+  - uid: Flagger.Flag`1
+    name: Flag
+    nameWithType: Flag
+    fullName: Flagger.Flag
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Flagger.Flag`1
+    name: Flag
+    nameWithType: Flag
+    fullName: Flagger.Flag
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Flagger.Flag.SetAndUnset*
+  commentId: Overload:Flagger.Flag.SetAndUnset
+  name: SetAndUnset
+  nameWithType: Flag.SetAndUnset
+  fullName: Flagger.Flag.SetAndUnset
+- uid: Flagger.Flag.SetAndUnsetIfUnset*
+  commentId: Overload:Flagger.Flag.SetAndUnsetIfUnset
+  name: SetAndUnsetIfUnset
+  nameWithType: Flag.SetAndUnsetIfUnset
+  fullName: Flagger.Flag.SetAndUnsetIfUnset
